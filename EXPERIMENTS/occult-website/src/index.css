@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+@import './terminal.css';
 
 :root {
   --bg-color: #050505;
@@ -115,10 +116,9 @@ body::after {
   Technical Layout & UI Elements
 */
 .terminal-frame {
-  margin: 1rem;
-  min-height: calc(100vh - 2rem);
-  border: 1px solid var(--ink-color);
-  padding: 1rem;
+  margin: 0;
+  min-height: 100vh;
+  padding: 2rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -159,7 +159,14 @@ body::after {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 400px;
+  max-width: 1200px;
+  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.9));
+}
+
+.stippled-image.prominent {
+  max-height: 80vh;
+  width: 100%;
+  object-fit: contain;
 }
 
 /* Brutalist Hard Hover Interaction */
@@ -180,19 +187,9 @@ body::after {
   max-height: 250px;
   object-fit: contain;
 
-  /* 
-    1-Bit Dithering Approximation & CRT Phosphor:
-    Original images are black-on-white.
-    Invert makes them white-on-black.
-    Contrast blows out the midtones.
-    Brightness tweaks the harshness.
-    Screen blends the black background into the #050505 body.
-  */
-  filter: grayscale(100%) contrast(500%) brightness(1.2) invert(1);
-  mix-blend-mode: screen;
-  drop-shadow: var(--phosphor-glow-ink);
-  transition: none;
-  /* No smooth fades */
+  filter: contrast(120%) brightness(1.1) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  mix-blend-mode: lighten;
+  transition: transform 0.3s ease;
 }
 
 /* 
