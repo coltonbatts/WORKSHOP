@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
 @import './terminal.css';
 
+@font-face {
+  font-family: 'GeistPixelLine';
+  src: url('./assets/GeistPixel-Line.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --bg-color: #050505;
   /* Obsidian Black */
@@ -192,33 +199,27 @@ body::after {
   transition: transform 0.3s ease;
 }
 
-/* 
-  Technical Overlays (Coordinates, Barcodes, Redacted blocks)
-*/
-.technical-overlay {
-  position: absolute;
-  font-size: 0.7rem;
+/* Signature & Terminal Flashing */
+.signature-container {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.signature {
+  font-family: 'GeistPixelLine', var(--font-mono);
+  font-size: 2.5rem;
+  color: var(--accent-color);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.8;
-  text-shadow: var(--phosphor-glow-ink);
+  letter-spacing: 0.15em;
+  text-shadow: var(--phosphor-glow-accent);
+  animation: terminal-flash 1.5s steps(2, start) infinite;
 }
 
-.coord-tr {
-  top: -20px;
-  right: -20px;
-}
-
-.coord-bl {
-  bottom: -20px;
-  left: -20px;
-}
-
-.redacted {
-  background-color: var(--ink-color);
-  color: var(--bg-color);
-  padding: 0 4px;
-  font-weight: bold;
+@keyframes terminal-flash {
+  to {
+    visibility: hidden;
+  }
 }
 
 .hard-line {

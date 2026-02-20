@@ -34,6 +34,12 @@ function App() {
         <div className="symbol-wrapper" style={{ alignSelf: 'center', marginTop: '-5rem', maxWidth: '1100px' }}>
           <img src={collage4} alt="Art Layer 4" className="stippled-image prominent" />
         </div>
+
+
+        {/* Signature */}
+        <div className="signature-container">
+          <div className="signature">Colton Batts</div>
+        </div>
       </div>
 
       <TerminalSystem />
