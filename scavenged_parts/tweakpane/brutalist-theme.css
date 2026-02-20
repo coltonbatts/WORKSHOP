@@ -1,0 +1,274 @@
+/* SCAVENGED FROM: cocopon/tweakpane — _theme.scss (compiled to CSS custom properties)
+ * PURPOSE: Industrial/Brutalist design system variables for Magpie or portfolio dashboards
+ * LICENSE: MIT
+ *
+ * DESIGN PHILOSOPHY:
+ *   - Monospace fonts exclusively (tech-forward authenticity)
+ *   - 4px grid system (industrial modularity)
+ *   - 20px unit size (all controls fit this height)
+ *   - 2px blade radius (sharp, utilitarian edges)
+ *   - State-based styling (hover/focus/active — no decorative elements)
+ *   - High contrast dark background with light controls
+ *
+ * USAGE: Apply .tp-theme to any container element to inherit these variables.
+ *        Override --tp-* variables for custom themes.
+ */
+
+.tp-theme {
+  /* ── Base ──────────────────────────────────────────── */
+  --tp-base-bg:              var(--tp-base-background-color, hsl(230, 7%, 17%));
+  --tp-base-border-radius:   var(--tp-base-border-radius, 6px);
+  --tp-base-font:            var(--tp-base-font-family, 'Roboto Mono', 'Source Code Pro', Menlo, Courier, monospace);
+  --tp-base-shadow:          var(--tp-base-shadow-color, rgba(0, 0, 0, 0.2));
+
+  /* ── Blade (individual control unit) ───────────────── */
+  --tp-blade-border-radius:  var(--tp-blade-border-radius, 2px);
+  --tp-blade-h-padding:      var(--tp-blade-horizontal-padding, 4px);
+  --tp-blade-value-width:    var(--tp-blade-value-width, 160px);
+
+  /* ── Button ────────────────────────────────────────── */
+  --tp-btn-bg:               var(--tp-button-background-color, hsl(230, 7%, 70%));
+  --tp-btn-bg-hover:         var(--tp-button-background-color-hover, hsl(230, 7%, 75%));
+  --tp-btn-bg-focus:         var(--tp-button-background-color-focus, hsl(230, 7%, 80%));
+  --tp-btn-bg-active:        var(--tp-button-background-color-active, hsl(230, 7%, 85%));
+  --tp-btn-fg:               var(--tp-button-foreground-color, hsl(230, 7%, 17%));
+
+  /* ── Container ─────────────────────────────────────── */
+  --tp-cnt-bg:               var(--tp-container-background-color, rgba(191, 191, 191, 0.10));
+  --tp-cnt-bg-hover:         var(--tp-container-background-color-hover, rgba(191, 191, 191, 0.15));
+  --tp-cnt-bg-focus:         var(--tp-container-background-color-focus, rgba(191, 191, 191, 0.20));
+  --tp-cnt-bg-active:        var(--tp-container-background-color-active, rgba(191, 191, 191, 0.25));
+  --tp-cnt-fg:               var(--tp-container-foreground-color, hsl(230, 7%, 75%));
+
+  /* ── Grid System ───────────────────────────────────── */
+  --tp-unit-size:            var(--tp-container-unit-size, 20px);
+  --tp-unit-spacing:         var(--tp-container-unit-spacing, 4px);
+  --tp-h-padding:            var(--tp-container-horizontal-padding, 4px);
+  --tp-v-padding:            var(--tp-container-vertical-padding, 4px);
+
+  /* ── Input ─────────────────────────────────────────── */
+  --tp-in-bg:                var(--tp-input-background-color, rgba(191, 191, 191, 0.10));
+  --tp-in-bg-hover:          var(--tp-input-background-color-hover, rgba(191, 191, 191, 0.15));
+  --tp-in-bg-focus:          var(--tp-input-background-color-focus, rgba(191, 191, 191, 0.20));
+  --tp-in-bg-active:         var(--tp-input-background-color-active, rgba(191, 191, 191, 0.25));
+  --tp-in-fg:                var(--tp-input-foreground-color, hsl(230, 7%, 75%));
+
+  /* ── Label ─────────────────────────────────────────── */
+  --tp-lbl-fg:               var(--tp-label-foreground-color, rgba(191, 191, 191, 0.7));
+
+  /* ── Monitor ───────────────────────────────────────── */
+  --tp-mon-bg:               var(--tp-monitor-background-color, rgba(0, 0, 0, 0.2));
+  --tp-mon-fg:               var(--tp-monitor-foreground-color, rgba(191, 191, 191, 0.7));
+
+  /* ── Groove ────────────────────────────────────────── */
+  --tp-groove-fg:            var(--tp-groove-foreground-color, rgba(191, 191, 191, 0.1));
+
+  /* ── Applied base styles ───────────────────────────── */
+  background-color: var(--tp-base-bg);
+  border-radius: var(--tp-base-border-radius);
+  box-shadow: 0 2px 4px var(--tp-base-shadow);
+  font-family: var(--tp-base-font);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--tp-cnt-fg);
+}
+
+/* ── Blade Component (base control unit) ─────────────── */
+.tp-blade {
+  border-radius: var(--tp-blade-border-radius);
+  padding: var(--tp-v-padding) var(--tp-blade-h-padding);
+}
+
+/* ── Button ──────────────────────────────────────────── */
+.tp-btn {
+  appearance: none;
+  background-color: var(--tp-btn-bg);
+  border: none;
+  border-radius: var(--tp-blade-border-radius);
+  color: var(--tp-btn-fg);
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-weight: bold;
+  height: var(--tp-unit-size);
+  line-height: var(--tp-unit-size);
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 var(--tp-h-padding);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+.tp-btn:hover  { background-color: var(--tp-btn-bg-hover); }
+.tp-btn:focus  { background-color: var(--tp-btn-bg-focus); }
+.tp-btn:active { background-color: var(--tp-btn-bg-active); }
+
+/* ── Input ───────────────────────────────────────────── */
+.tp-input {
+  appearance: none;
+  background-color: var(--tp-in-bg);
+  border: none;
+  border-radius: var(--tp-blade-border-radius);
+  box-sizing: border-box;
+  color: var(--tp-in-fg);
+  font-family: inherit;
+  font-size: inherit;
+  height: var(--tp-unit-size);
+  line-height: var(--tp-unit-size);
+  margin: 0;
+  outline: none;
+  padding: 0 var(--tp-h-padding);
+  width: 100%;
+}
+.tp-input:hover  { background-color: var(--tp-in-bg-hover); }
+.tp-input:focus  { background-color: var(--tp-in-bg-focus); }
+.tp-input:active { background-color: var(--tp-in-bg-active); }
+
+/* ── Slider ──────────────────────────────────────────── */
+.tp-slider {
+  position: relative;
+  height: var(--tp-unit-size);
+}
+.tp-slider__track {
+  position: relative;
+  height: 100%;
+}
+.tp-slider__track::before {
+  content: '';
+  background-color: var(--tp-in-bg);
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.tp-slider__knob {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.tp-slider__knob::before {
+  content: '';
+  background-color: var(--tp-in-fg);
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.tp-slider__knob::after {
+  content: '';
+  background-color: var(--tp-btn-bg);
+  border-radius: var(--tp-blade-border-radius);
+  display: block;
+  height: 12px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 12px;
+}
+
+/* ── Folder/Accordion ────────────────────────────────── */
+.tp-folder {
+  position: relative;
+}
+.tp-folder__title {
+  appearance: none;
+  background-color: var(--tp-cnt-bg);
+  border: none;
+  color: var(--tp-cnt-fg);
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-weight: bold;
+  height: calc(var(--tp-unit-size) + 4px);
+  line-height: calc(var(--tp-unit-size) + 4px);
+  margin: 0;
+  outline: none;
+  padding: 0 var(--tp-h-padding);
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+}
+.tp-folder__title:hover  { background-color: var(--tp-cnt-bg-hover); }
+.tp-folder__title:focus  { background-color: var(--tp-cnt-bg-focus); }
+.tp-folder__title:active { background-color: var(--tp-cnt-bg-active); }
+
+/* Left indent line — structural indicator */
+.tp-folder__indent {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: calc(var(--tp-unit-size) + 4px);
+  width: 4px;
+}
+.tp-folder__indent::before {
+  content: '';
+  background-color: var(--tp-cnt-bg);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 4px;
+}
+
+/* Chevron — pure CSS, no icons */
+.tp-folder__chevron {
+  background: linear-gradient(
+    to left,
+    var(--tp-cnt-fg),
+    var(--tp-cnt-fg) 2px,
+    transparent 2px,
+    transparent 4px,
+    var(--tp-cnt-fg) 4px
+  );
+  border-radius: 2px;
+  height: 6px;
+  width: 6px;
+  transform: rotate(90deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Collapse animation */
+.tp-folder__content {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 0.2s ease-in-out, opacity 0.2s linear;
+}
+.tp-folder--expanded > .tp-folder__content {
+  opacity: 1;
+}
+
+/* ── Label Row (key-value layout) ────────────────────── */
+.tp-label {
+  display: flex;
+  align-items: center;
+  gap: var(--tp-unit-spacing);
+  padding: var(--tp-v-padding) var(--tp-h-padding);
+}
+.tp-label__key {
+  color: var(--tp-lbl-fg);
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tp-label__value {
+  flex-grow: 1;
+  width: var(--tp-blade-value-width);
+}
+
+/* ── Disabled state ──────────────────────────────────── */
+.tp-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
